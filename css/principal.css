@@ -1,0 +1,462 @@
+/* Variables CSS (opcional pero recomendado para consistencia) */
+:root {
+    --primary-blue: #007BFF; /* Un azul base para elementos principales */
+    --secondary-green: #4CAF50; /* El verde de los botones "Aprende gratis" */
+    --dark-text: #333;
+    --light-text: #fff;
+    --sidebar-bg: #2c3e50; /* Color de fondo de la barra lateral */
+    --sidebar-link-hover: #34495e;
+    --active-link-bg: #1abc9c; /* Verde/cian para el enlace activo de la barra lateral */
+    --light-grey-bg: #f8f8f8; /* Fondo para secciones claras */
+    --border-color: #ddd;
+}
+
+/* Fuentes */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--dark-text);
+    background-color: var(--light-grey-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Contenedor principal del dashboard (si lo usas, asegúrate de que tu HTML lo tenga) */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra lateral (si la usas, asegúrate de que tu HTML la tenga) */
+.sidebar {
+    width: 250px; /* Ancho fijo de la barra lateral */
+    background-color: var(--sidebar-bg);
+    color: var(--light-text);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar elementos horizontalmente */
+}
+
+.profile-avatar {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profile-avatar img {
+    width: 100px; /* Tamaño del avatar */
+    height: 100px;
+    border-radius: 50%; /* Hacerlo redondo */
+    border: 3px solid var(--active-link-bg); /* Borde para el avatar */
+    object-fit: cover;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.main-nav ul li {
+    margin-bottom: 10px;
+}
+
+.main-nav ul li a {
+    display: flex; /* Para alinear ícono y texto */
+    align-items: center;
+    padding: 12px 15px;
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px; /* Bordes redondeados para los enlaces */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav ul li a i {
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+    font-size: 1.1em;
+}
+
+.main-nav ul li a:hover {
+    background-color: var(--sidebar-link-hover);
+}
+
+.main-nav ul li a.active {
+    background-color: var(--active-link-bg);
+    color: var(--light-text); /* Asegura que el texto siga blanco en activo */
+}
+
+/* Contenido principal */
+.main-content {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    background-color: var(--light-grey-bg);
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 20px;
+}
+
+/* Sección Hero (Pantalla principal grande) */
+.hero-section {
+    /* Ajuste del degradado para que se asemeje más a las imágenes con degradado azul/morado */
+    background: linear-gradient(to right, #4a00e0, #8e2de2); /* Un degradado de azul oscuro a morado */
+    color: var(--light-text);
+    padding: 80px 0;
+    position: relative; /* Para posicionar los botones superiores */
+    overflow: hidden; /* Oculta cualquier desbordamiento de la imagen de fondo/ilustraciones */
+    min-height: 400px; /* Altura mínima para la sección hero */
+    display: flex;
+    align-items: center; /* Centrar contenido verticalmente */
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    position: relative; /* Para que los elementos internos respeten el contenedor */
+}
+
+.hero-content {
+    flex: 1; /* Permite que el contenido tome el espacio */
+    min-width: 300px; /* Asegura que no se haga demasiado pequeño */
+    padding-right: 40px; /* Espacio entre el texto y la imagen */
+}
+
+.hero-content h1 {
+    font-size: 3.5em; /* Tamaño grande del título hero */
+    font-weight: 700;
+    color: var(--light-text); /* Texto blanco */
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 500px; /* Limita el ancho de la descripción */
+}
+
+.btn-primary {
+    background-color: var(--secondary-green); /* Verde brillante para el botón principal */
+    color: var(--light-text);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px; /* Bordes muy redondeados */
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Por si se usa como <a> */
+    display: inline-block; /* Para que padding funcione bien si es <a> */
+}
+
+.btn-primary:hover {
+    background-color: #3e8e41; /* Verde un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto ligero de elevación */
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 1em;
+}
+
+.ratings .rating-text {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.ratings .stars i {
+    color: gold; /* Color de las estrellas */
+    margin-right: 2px;
+}
+
+.ratings .reviews-count {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+/* Estilos de la imagen de Trustpilot (mantenerla visible) */
+.trustpilot-logo {
+    height: 20px; /* Ajusta el tamaño de la estrella Trustpilot */
+    vertical-align: middle;
+    margin-left: 5px; /* Pequeño espacio a la derecha del "on" */
+}
+
+/* ESTILOS PARA LA PALABRA "Trustpilot" como logo */
+.trustpilot-word-logo {
+    font-family: 'Montserrat', sans-serif; /* O la fuente más parecida al logo de Trustpilot */
+    font-weight: 700; /* Negrita para la fuerza del logo */
+    font-size: 1.2em; /* Tamaño adecuado para que resalte */
+    color: #e9efed; /* Color verde azulado característico de Trustpilot */
+    text-transform: capitalize; /* La primera letra en mayúscula si no lo está */
+    letter-spacing: -0.5px; /* Ajuste para que las letras se vean "juntas" como en un logo */
+    margin-left: 5px; /* Espacio a la izquierda de la imagen de la estrella Trustpilot */
+    /* Puedes añadir más estilos si quieres un efecto de caja o sombra: */
+    /* padding: 2px 5px; */
+    /* border-radius: 4px; */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+
+.hero-image {
+    flex: 1; /* Permite que la imagen ocupe el espacio */
+    text-align: right;
+    min-width: 300px;
+}
+
+.hero-image .main-illustration {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Botones superiores (Registrarse y Aprende gratis en la esquina superior) */
+.top-buttons {
+    position: absolute;
+    top: 30px; /* Ajusta la distancia desde la parte superior */
+    right: 40px; /* Ajusta la distancia desde la derecha */
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    z-index: 100;
+    align-items: center;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--light-text); /* Borde blanco para el botón transparente */
+    color: var(--light-text);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo ligeramente transparente al pasar el ratón */
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-primary-small {
+    background-color: var(--secondary-green); /* Verde para el botón "Registrarse" */
+    color: var(--light-text);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary-small:hover {
+    background-color: #3e8e41; /* Verde un poco más oscuro al pasar el ratón */
+    transform: translateY(-1px);
+}
+
+
+/* Sección de bienvenida (si la necesitas, debajo de hero) */
+.welcome-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--light-grey-bg); /* Fondo claro */
+}
+
+.welcome-section h1 {
+    font-size: 2.8em;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+}
+
+/* Sección de selección de idiomas */
+.language-selection-section {
+    padding: 60px 0;
+    background-color: var(--light-grey-bg);
+    text-align: center;
+}
+
+.language-selection-section h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: var(--dark-text);
+}
+
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas responsivas */
+    gap: 20px;
+    max-width: 1000px; /* Ancho máximo de la cuadrícula */
+    margin: 0 auto; /* Centrar la cuadrícula */
+}
+
+.language-item {
+    background-color: var(--light-text); /* Fondo blanco para cada item */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 120px; /* Altura mínima para que sean uniformes */
+}
+
+.language-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.language-item img {
+    width: 40px; /* Tamaño de la bandera */
+    height: 40px;
+    border-radius: 50%; /* Hacer la bandera redonda */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color); /* Borde suave para las banderas */
+}
+
+.language-item span {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--dark-text);
+}
+
+
+/* Responsive Design (Ajustes para pantallas pequeñas) */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px; /* Reduce el ancho de la barra lateral */
+        padding: 15px;
+    }
+
+    .main-nav ul li a {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em; /* Reduce el tamaño del título hero */
+    }
+
+    .hero-image {
+        text-align: center; /* Centrar la imagen en pantallas más pequeñas */
+        margin-top: 40px; /* Espacio superior */
+    }
+
+    .hero-content {
+        padding-right: 0; /* Elimina el padding derecho */
+        text-align: center; /* Centra el texto */
+    }
+
+    .top-buttons {
+        position: static; /* Quita el posicionamiento absoluto */
+        justify-content: center; /* Centra los botones si se apilan */
+        margin-bottom: 20px; /* Añade espacio debajo de los botones */
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .hero-section .container {
+        flex-direction: column; /* Apila el contenido de la hero section */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column; /* Apila la barra lateral y el contenido principal */
+    }
+
+    .sidebar {
+        width: 100%; /* La barra lateral ocupa todo el ancho */
+        height: auto;
+        padding: 10px 20px;
+        flex-direction: row; /* Elementos de la barra lateral en fila */
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-avatar {
+        margin: 0;
+    }
+
+    .profile-avatar img {
+        width: 60px; /* Avatar más pequeño en móvil */
+        height: 60px;
+    }
+
+    .main-nav {
+        display: none; /* Oculta la navegación principal por defecto en móvil */
+        /* Aquí podrías implementar un botón de hamburguesa para mostrarla */
+    }
+
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em; /* Títulos aún más pequeños en móvil */
+    }
+
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .btn-primary {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .languages-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajusta la cuadrícula de idiomas */
+    }
+
+    .language-item img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .language-item span {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        flex-direction: column; /* Vuelve a apilar en pantallas muy pequeñas */
+        text-align: center;
+    }
+
+    .top-buttons {
+        flex-direction: column; /* Apila los botones superiores */
+        gap: 10px;
+    }
+}

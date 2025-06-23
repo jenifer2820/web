@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones - Mi Aplicación</title>
+    <link rel="stylesheet" href="css/notificaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-avatar">
+                <img src="recursos/avatar.png" alt="Avatar de Usuario">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="inicio.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="perfil.html" class="nav-item"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li><a href="lecciones.html" class="nav-item"><i class="fas fa-book"></i> Lecciones</a></li>
+                    <li><a href="notificaciones.html" class="nav-item current-page"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                    <li><a href="mensajes.html" class="nav-item"><i class="fas fa-comments"></i> Mensajes</a></li>
+                    <li><a href="foro.html" class="nav-item"><i class="fas fa-users"></i> Foro</a></li>
+                    <li><a href="pagos-inscripcion.html" class="nav-item"><i class="fas fa-credit-card"></i> Pagos de Inscripción</a></li>
+                    <li><a href="ajustes.html" class="nav-item"><i class="fas fa-cog"></i> Ajustes</a></li>
+                    <li><a href="ayuda.html" class="nav-item"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <h2>Notificaciones <i class="fas fa-bell"></i></h2> <button class="action-button" id="markAllReadButton">Marcar todas como leídas</button>
+            </header>
+
+            <section class="info-section">
+                <div class="notification-tabs">
+                    <a href="#" class="tab-item active" data-filter="all">Todas</a>
+                    <a href="#" class="tab-item" data-filter="unread">No leídas</a>
+                    <a href="#" class="tab-item" data-filter="settings">Configuración</a>
+                </div>
+
+                <div class="notification-box" data-type="general">
+    <div class="notification-icon">
+        <i class="fas fa-clock"></i> </div>
+    <div class="notification-details">
+        <h3>¡Hora de practicar! / Time to practice!</h3>
+        <p>No olvides practicar inglés hoy / Don’t forget to practice English today</p>
+    </div>
+    <div class="notification-actions-icons">
+        <button class="icon-button archive-button" title="Archivar"><i class="fas fa-archive"></i></button>
+        <button class="icon-button snooze-button" title="Posponer"><i class="fas fa-clock"></i></button>
+    </div>
+</div>
+
+<div class="notification-box" data-type="general">
+    <div class="notification-icon">
+        <i class="fas fa-trophy"></i> </div>
+    <div class="notification-details">
+        <h3>¡Felicidades! / Congratulations!</h3>
+        <p>Ganaste 10 XP por tu progreso / You earned 10 XP for your progress</p>
+    </div>
+    <div class="notification-actions-icons">
+        <button class="icon-button archive-button" title="Archivar"><i class="fas fa-archive"></i></button>
+        <button class="icon-button snooze-button" title="Posponer"><i class="fas fa-clock"></i></button>
+    </div>
+</div>
+        <div class="notification-list">
+                    <div class="notification-box" data-type="general">
+                        <div class="notification-icon">
+                        <i class="fas fa-thumbs-up"></i> </div>
+                        <div class="notification-details">
+                            <h3>¡Sigue así! / Keep up the good work!</h3>
+                            <p>¡Llevas una racha de 5 días! / You're on a 5-days streak!</p>
+                        </div>
+                        <div class="notification-actions-icons">
+                            <button class="icon-button archive-button" title="Archivar"><i class="fas fa-archive"></i></button>
+                            <button class="icon-button snooze-button" title="Posponer"><i class="fas fa-clock"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="notification-box" data-type="settings">
+                        <div class="notification-icon">
+                            <i class="fas fa-book-open"></i> </div>
+                        <div class="notification-details">
+                            <h3>Nueva lección disponible / New lesson available</h3>
+                            <p>Frases de viaje ahora están desbloqueadas / Travel Phrases is now unlocked</p>
+                        </div>
+                        <div class="notification-actions-icons">
+                            <button class="icon-button archive-button" title="Archivar"><i class="fas fa-archive"></i></button>
+                            <button class="icon-button snooze-button" title="Posponer"><i class="fas fa-clock"></i></button>
+                        </div>
+                    </div>
+                    <div class="notification-box" data-type="messages">
+                        <div class="notification-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="notification-details">
+                            <h3>Nuevo mensaje de tu profesor</h3>
+                            <p>Tienes una nueva tarea disponible para esta semana.</p>
+                        </div>
+                        <div class="notification-actions-icons">
+                            <button class="icon-button archive-button" title="Archivar"><i class="fas fa-archive"></i></button>
+                            <button class="icon-button snooze-button" title="Posponer"><i class="fas fa-clock"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="notification-box" data-type="settings">
+                        <div class="notification-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="notification-details">
+                            <h3>Actualización de Preferencias</h3>
+                            <p>Tus ajustes de notificación han sido guardados.</p>
+                        </div>
+                        <div class="notification-actions-icons">
+                            <button class="icon-button archive-button" title="Archivar"><i class="fas fa-archive"></i></button>
+                            <button class="icon-button snooze-button" title="Posponer"><i class="fas fa-clock"></i></button>
+                        </div>
+                    </div>
+                    </div>
+            </section>
+
+            <div class="notification-footer-actions">
+                <button class="action-button" id="replyButton">Responder</button>
+                <button class="action-button delete-button" id="deleteSelectedButton">Eliminar</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/notificaciones.js"></script>
+    <script src="js/tema.js"></script>
+</body>
+</html>
+
+
+
+

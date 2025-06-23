@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-avatar">
+                <img src="recursos/avatar.png" alt="Avatar de Usuario">
+               
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="perfil.html" class="active"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li><a href="lecciones.html"><i class="fas fa-book"></i> Lecciones</a></li>
+                    <li><a href="notificaciones.html"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                    <li><a href="mensajes.html"><i class="fas fa-comments"></i> Mensajes</a></li>
+                    <li><a href="foro.html"><i class="fas fa-users"></i> Foro</a></li>
+                    <li><a href="pagos-inscripcion.html"><i class="fas fa-credit-card"></i> Pagos de Inscripción</a></li>
+                    <li><a href="ajustes.html"><i class="fas fa-cog"></i> Ajustes</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <header class="profile-header">
+                <h2 id="headerUserName">GABRIELA SOFIA URIARTE SULCA</h2> 
+                <div class="header-actions">
+                    <button>Editar</button>
+                    <button style="display:none;">Guardar</button> </div>
+            </header>
+
+            <section class="info-section">
+                <h3>Información Básica</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" value="Gabriela Sofia Uriarte Sulca" disabled> 
+                    </div>
+                    <div class="info-item">
+                        <label for="fechaNac">Fecha de Nacimiento:</label>
+                        <input type="date" id="fechaNac" value="2000-01-01" disabled>
+                    </div>
+                    <div class="info-item">
+                        <label for="genero">Género:</label>
+                        <select id="genero" disabled>
+                            <option value="femenino">Femenino</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="info-item">
+                        <label for="nacionalidad">Nacionalidad:</label>
+                        <input type="text" id="nacionalidad" value="Peruana" disabled>
+                    </div>
+                    <div class="info-item">
+                        <label for="idiomaNativo">Idioma Nativo:</label>
+                        <input type="text" id="idiomaNativo" value="Español" disabled>
+                    </div>
+                    <div class="info-item">
+                        <label for="ocupacion">Ocupación:</label>
+                        <input type="text" id="ocupacion" value="Estudiante" disabled>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3>Información de Contacto</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" value="gabriela.s@example.com" disabled> 
+                    </div>
+                    <div class="info-item">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" value="+51 987 654 321" disabled>
+                    </div>
+                    <div class="info-item">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" value="Av. Siempre Viva 123" disabled>
+                    </div>
+                    <div class="info-item">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad" value="Lima" disabled>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3>Información Adicional</h3>
+                <div class="info-grid">
+                    <div class="info-item full-width">
+                        <label for="intereses">Intereses:</label>
+                        <textarea id="intereses" rows="3" disabled>Aprender idiomas, programación, historia.</textarea>
+                    </div>
+                    <div class="info-item full-width">
+                        <label for="biografia">Biografía Breve:</label>
+                        <textarea id="biografia" rows="3" disabled>Estudiante apasionada por el aprendizaje continuo y el desarrollo web.</textarea>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/perfil.js"></script>
+    <script src="js/tema.js"></script>
+</body>
+</html>

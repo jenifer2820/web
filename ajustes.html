@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajustes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/ajustes.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile-avatar">
+        <img src="recursos/avatar.png" alt="Avatar de Usuario">
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="inicio.html"><i class="fas fa-home"></i> <span data-i18n="inicio">Inicio</span></a></li>
+          <li><a href="perfil.html"><i class="fas fa-user"></i> <span data-i18n="perfil">Perfil</span></a></li>
+          <li><a href="lecciones.html"><i class="fas fa-book"></i> <span data-i18n="lecciones">Lecciones</span></a></li>
+          <li><a href="notificaciones.html"><i class="fas fa-bell"></i> <span data-i18n="notificaciones">Notificaciones</span></a></li>
+          <li><a href="mensajes.html"><i class="fas fa-comments"></i> <span data-i18n="mensajes">Mensajes</span></a></li>
+          <li><a href="foro.html"><i class="fas fa-users"></i> <span data-i18n="foro">Foro</span></a></li>
+          <li><a href="pagos-inscripcion.html"><i class="fas fa-credit-card"></i> <span data-i18n="pagos">Pagos de Inscripción</span></a></li>
+          <li><a href="ajustes.html" class="active"><i class="fas fa-cog"></i> <span data-i18n="ajustes">Ajustes</span></a></li>
+          <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> <span data-i18n="ayuda">Ayuda</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="main-content">
+      <h1 data-i18n="titulo">AJUSTES DEL SISTEMA</h1>
+      <input type="text" placeholder="Buscar" class="search" data-i18n-placeholder="buscar">
+
+      <div class="settings-section">
+        <div class="box">
+          <h2 data-i18n="lenguaje">LENGUAJE</h2>
+          <label><input type="radio" name="lang" value="es" checked> <span data-i18n="lang_es">Español</span></label><br>
+          <label><input type="radio" name="lang" value="en"> <span data-i18n="lang_en">Inglés</span></label><br>
+          <label><input type="radio" name="lang" value="it"> <span data-i18n="lang_it">Italiano</span></label><br>
+          <label><input type="radio" name="lang" value="fr"> <span data-i18n="lang_fr">Francés</span></label>
+        </div>
+
+        <div class="box">
+          <h2 data-i18n="notificaciones">AJUSTE DE NOTIFICACIONES</h2>
+          <label><input type="radio" name="notif" value="1" checked> <span data-i18n="opcion1">Opción 1</span></label><br>
+          <label><input type="radio" name="notif" value="2"> <span data-i18n="opcion2">Opción 2</span></label><br>
+          <label><input type="radio" name="notif" value="3"> <span data-i18n="opcion3">Opción 3</span></label><br>
+          <label><input type="radio" name="notif" value="4"> <span data-i18n="opcion4">Opción 4</span></label>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="box">
+          <h2 data-i18n="contraste">CONTRASTE</h2>
+          <label class="switch">
+            <input type="checkbox" id="contrastToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="box">
+          <h2 data-i18n="descanso">DESCANSO VISUAL</h2>
+          <label class="switch">
+            <input type="checkbox" id="descansoToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-section double">
+        <div class="box">
+          <h2 data-i18n="temas">TEMAS</h2>
+          <div class="themes">
+            <div class="theme" style="background-color: magenta;" data-theme="magenta"></div>
+            <div class="theme" style="background-color: blue;" data-theme="blue"></div>
+            <div class="theme" style="background-color: orange;" data-theme="orange"></div>
+            <div class="theme" style="background-color: green;" data-theme="green"></div>
+            <div class="theme" style="background-color: white; border: 1px solid #ccc;" data-theme="white"></div>
+          </div>
+        </div>
+
+        <div class="box">
+          <h2 data-i18n="privacidad">AJUSTES DE PRIVACIDAD</h2>
+
+          <label>
+      <input type="checkbox" name="privacidad" value="1" id="priv1">
+        <span data-i18n="priv_opcion1">Mi perfil es visible para otros usuarios</span>
+        </label><br>
+
+        <label>
+          <input type="checkbox" name="privacidad" value="2" id="priv2">
+          <span data-i18n="priv_opcion2">Mostrarme en clasificaciones y ranking</span>
+        </label><br>
+
+        <label>
+          <input type="checkbox" name="privacidad" value="3" id="priv3">
+          <span data-i18n="priv_opcion3">Permitir recibir mensajes privados</span>
+        </label><br>
+
+        <label>
+          <input type="checkbox" name="privacidad" value="4" id="priv4">
+          <span data-i18n="priv_opcion4">Mostrar mis logros y medallas públicamente</span>
+        </label>
+
+      </div>
+    </div>
+  </div>
+  <script src="js/ajustes.js"></script>
+  <script src="js/tema.js"></script>
+</body>
+</html>

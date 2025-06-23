@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecciones</title>
+    <link rel="stylesheet" href="css/lecciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-avatar">
+                <img src="recursos/avatar.png" alt="Avatar de Usuario">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    
+                    <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li><a href="lecciones.html" class="active"><i class="fas fa-book"></i> Lecciones</a></li>
+                    <li><a href="notificaciones.html"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                    <li><a href="mensajes.html"><i class="fas fa-comments"></i> Mensajes</a></li>
+                    <li><a href="foro.html"><i class="fas fa-users"></i> Foro</a></li>
+                    <li><a href="pagos-inscripcion.html"><i class="fas fa-credit-card"></i> Pagos de Inscripción</a></li>
+                    <li><a href="ajustes.html"><i class="fas fa-cog"></i> Ajustes</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="lessons-content">
+            <header class="lessons-header">
+                <div class="welcome-message">
+                    <h1>¡Mis Lecciones!</h1>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="🔍 Busca por país, tema o habilidad">
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-cog"></i>
+                    <img src="recursos/user.p.png" alt="Avatar Pequeño" class="small-avatar">
+                </div>
+            </header>
+
+            <section class="summary-cards">
+                <div class="card language-card">
+                    <img src="recursos/banderaeeuu,png.png" alt="Imagen del curso" class="course-image">
+                    <div class="course-title-section">
+                        <i class="fas fa-globe course-icon"></i> <h3>Inglés (Nivel A1)</h3>
+                    </div>
+                    <div class="racha-section">
+                        <i class="fas fa-fire"></i>
+                        <span class="racha-days">31 días</span>
+                        <i class="fas fa-medal"></i>
+                    </div>
+                </div>
+                <div class="card course-summary-card">
+                    <img src="recursos/newyork.jpg" alt="Imagen del curso" class="course-image">
+                    <div class="course-title-section">
+                        <i class="fas fa-book-open course-icon"></i> <h3>Inglés (Nivel A1)</h3>
+                    </div>
+                    <p>Tiempo restante: <span>31</span> días</p>
+                    <p>Lecciones completadas: <span>24%</span></p>
+                    <div class="circular-progress">
+                        <span class="progress-text">24%</span>
+                    </div>
+                </div>
+
+                <div class="card language-card">
+                    <img src="recursos/bandera.francia.webp" alt="Imagen del curso" class="course-image">
+                    <div class="course-title-section">
+                        <i class="fas fa-flag course-icon"></i> <h3>Francés (Nivel A1)</h3>
+                    </div>
+                    <div class="racha-section">
+                        <i class="fas fa-fire"></i>
+                        <span class="racha-days">15 días</span>
+                        <i class="fas fa-award"></i>
+                    </div>
+                    </div>
+            </section>
+
+            <section class="recent-modules">
+                <h2>Módulo 2: Inglés (Nivel A1)</h2>
+                <div class="module-actions">
+                    <div class="module-navigation">
+                        <button class="module-button active">M1</button>
+                        <button class="module-button active">M2</button>
+                        <button class="module-button">M3</button>
+                        <button class="module-button">M4</button>
+                        <button class="module-button">M5</button>
+                    </div>
+                    <div class="module-progress-line">
+                        <div class="line"></div>
+                        <div class="dot active"></div>
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <button class="continue-button">Continuar</button>
+                </div>
+            </section>
+            <!-- Modal de Ejercicios de Habla -->
+            <div id="modalHabla" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Pronuncia esta oración:</h2>
+                <p id="frase">The weather is nice today.</p>
+
+                <button id="btnMicrofono">🎤 Hablar</button>
+                <p id="statusGrabacion">Esperando grabación...</p>
+
+                <button id="btnEnviar">Enviar</button>
+                <button id="btnContinuar">Continuar</button>
+              </div>
+            </div>
+    
+            <!-- Modal Ejercicios de Escucha -->
+            <div id="modalEscucha" class="modal">
+              <div class="modal-content">
+                <span class="close close-escucha">&times;</span>
+                <h2>Escucha el audio y escribe lo que entendiste:</h2>
+                <audio id="audioPlayer" controls></audio>
+
+                <textarea id="respuestaEscucha" placeholder="Escribe aquí lo que entendiste..."></textarea>
+
+                <button id="btnEnviarEscucha">Enviar</button>
+                <button id="btnContinuarEscucha">Continuar</button>
+              </div>
+            </div>
+            <!-- Modal Ejercicios de Escritura -->
+            <div id="modalEscritura" class="modal">
+              <div class="modal-content">
+                <span class="close close-escritura">&times;</span>
+                <h2>Traduce esta oración al inglés:</h2>
+                <p id="fraseEscritura">El gato está en la mesa.</p>
+
+                <textarea id="respuestaEscritura" placeholder="Escribe tu traducción aquí..."></textarea>
+
+                <button id="btnEnviarEscritura" class="btn-acento">Enviar</button>
+                <button id="btnContinuarEscritura" class="btn-acento">Continuar</button>
+              </div>
+            </div>
+            <!-- Modal de Exámenes -->
+            <div id="modalExamenes" class="modal">
+              <div class="modal-content">
+                <span class="close close-examen">&times;</span>
+                <h2>Examen Final</h2>
+
+            <!-- Ejercicios de Habla -->
+                <div>
+                  <h3>Ejercicio de Habla 1:</h3>
+                  <p>Say: "I love learning English."</p>
+                  <button class="btn-simular-habla" data-index="0">🎤 Simular grabación</button>
+                  <p class="feedback-habla"></p>
+                </div>
+
+                <div>
+                  <h3>Ejercicio de Habla 2:</h3>
+                  <p>Say: "The cat is under the table."</p>
+                  <button class="btn-simular-habla" data-index="1">🎤 Simular grabación</button>
+                  <p class="feedback-habla"></p>
+                </div>
+
+            <!-- Ejercicios de Escucha -->
+                <div>
+                  <h3>Ejercicio de Escucha 1:</h3>
+                  <audio controls src="https://www.englishvoices.org/audio/the-cat-is-on-the-table.mp3"></audio>
+                  <textarea class="respuesta-escucha" placeholder="Escribe lo que escuchaste"></textarea>
+                </div>
+                <div>
+                  <h3>Ejercicio de Escucha 2:</h3>
+                  <audio controls src="https://www.englishvoices.org/audio/i-am-learning-english.mp3"></audio>
+                  <textarea class="respuesta-escucha" placeholder="Escribe lo que escuchaste"></textarea>
+                </div>
+                <div>
+                  <h3>Ejercicio de Escucha 3:</h3>
+                  <audio controls src="https://www.englishvoices.org/audio/can-you-help-me.mp3"></audio>
+                  <textarea class="respuesta-escucha" placeholder="Escribe lo que escuchaste"></textarea>
+                </div>
+
+            <!-- Ejercicios de Escritura -->
+                <div>
+                  <h3>Ejercicio de Escritura 1:</h3>
+                  <p>Traduce: "Ella está cocinando la cena."</p>
+                  <input type="text" class="respuesta-escritura" placeholder="Traducción en inglés">
+                </div>
+                <div>
+                  <h3>Ejercicio de Escritura 2:</h3>
+                  <p>Traduce: "Nosotros vivimos en una ciudad grande."</p>
+                  <input type="text" class="respuesta-escritura" placeholder="Traducción en inglés">
+                </div>
+                <div>
+                  <h3>Ejercicio de Escritura 3:</h3>
+                  <p>Traduce: "Estoy aprendiendo inglés cada día."</p>
+                  <input type="text" class="respuesta-escritura" placeholder="Traducción en inglés">
+                </div>
+
+                <button id="btnEnviarExamen">Enviar</button>
+                <div id="feedbackExamen"></div>
+            </div>
+            </div>
+
+            <!-- Sección de botones -->
+            <div class="button-section">
+              <button id="btnHabla">
+                <img src="https://img.icons8.com/ios-filled/24/microphone.png"/> Ejercicios de Habla
+              </button>
+              <button id="btnEscucha">
+                <img src="https://img.icons8.com/ios-filled/24/headphones.png"/> Ejercicios de Escucha
+              </button>
+              <button id="btnEscritura">
+                <img src="https://img.icons8.com/ios-filled/24/edit.png"/> Ejercicios de Escritura
+              </button>
+              <button id="btnExamenes">
+                <img src="https://img.icons8.com/ios-filled/24/test.png"/> Exámenes
+              </button>
+            </div>
+
+            <footer>
+              <span>© Ayuda</span>
+            </footer>
+
+            <button id="btnPanelProgreso">
+              <img src="https://img.icons8.com/ios-filled/24/combo-chart.png"/>.  Ver Panel de Progreso
+              </button><a href="dashboards-progreso.html" class="btn-link-panel">
+            </a>
+            </main>
+        </div>
+
+    <script src="js/lecciones.js"></script>
+    <script src="js/tema.js"></script>
+</body>
+</html>

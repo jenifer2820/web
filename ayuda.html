@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda</title>
+    <link rel="stylesheet" href="css/ayuda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="profile-avatar">
+                <img src="recursos/avatar.png" alt="Avatar de Usuario">
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li><a href="lecciones.html"><i class="fas fa-book"></i> Lecciones</a></li>
+                    <li><a href="notificaciones.html"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                    <li><a href="mensajes.html"><i class="fas fa-comments"></i> Mensajes</a></li>
+                    <li><a href="foro.html"><i class="fas fa-users"></i> Foro</a></li>
+                    <li><a href="pagos-inscripcion.html"><i class="fas fa-credit-card"></i> Pagos de Inscripción</a></li>
+                    <li><a href="ajustes.html"><i class="fas fa-cog"></i> Ajustes</a></li>
+                    <li><a href="ayuda.html" class="active"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="help-main">
+            <h1>Centro de Ayuda</h1>
+            <div class="help-cards">
+                <div class="help-card">
+                    <img src="https://img.icons8.com/color/96/help--v1.png" alt="Centro de ayuda">
+                    <h2>Centro de Ayuda</h2>
+                    <p>Consulta preguntas frecuentes o chatea con soporte.</p>
+                    <button onclick="goToHelp()">Ir</button>
+                </div>
+                <div class="help-card">
+                    <img src="https://img.icons8.com/color/96/privacy-policy.png" alt="Política de privacidad">
+                    <h2>Política de Privacidad</h2>
+                    <p>Lee nuestros términos y cómo protegemos tus datos.</p>
+                    <button onclick="openPrivacy()">Ver</button>
+                </div>
+                <div class="help-card">
+                    <img src="https://img.icons8.com/color/96/error--v1.png" alt="Reportar un problema">
+                    <h2>Reportar un Problema</h2>
+                    <p>¿Encontraste un error? Envíanos un informe.</p>
+                    <button onclick="sendReport()">Reportar</button>
+                </div>
+                <div class="help-card">
+                    <img src="https://img.icons8.com/color/96/info--v1.png" alt="Información de la app">
+                    <h2>Información de la App</h2>
+                    <p>Versión, novedades y otros detalles.</p>
+                    <button onclick="showAppInfo()">Ver info</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de política de privacidad -->
+    <!-- Modal de política de privacidad -->
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closePrivacy()">&times;</span>
+        <h2>Política de Privacidad</h2>
+        <p><strong>Última actualización:</strong> 15 de junio de 2025</p>
+
+        <p>En <strong>iPolyglot</strong>, valoramos tu privacidad y estamos comprometidos con la protección de tus datos personales. Esta política explica cómo recopilamos, usamos, almacenamos y protegemos tu información.</p>
+
+        <h3>1. Información que recopilamos</h3>
+        <ul>
+            <li>Nombre, correo electrónico y foto de perfil.</li>
+            <li>Preferencias de idioma, progreso educativo y configuración de usuario.</li>
+            <li>Datos de navegación y uso de la plataforma (cookies, páginas visitadas, etc.).</li>
+        </ul>
+
+        <h3>2. Cómo usamos tu información</h3>
+        <ul>
+            <li>Para personalizar tu experiencia en la plataforma.</li>
+            <li>Para mejorar nuestros servicios y contenido educativo.</li>
+            <li>Para enviarte notificaciones, recordatorios o novedades (puedes darte de baja en cualquier momento).</li>
+        </ul>
+
+        <h3>3. Base legal para el tratamiento</h3>
+        <p>Recopilamos y tratamos tus datos personales bajo una o más de las siguientes bases legales:</p>
+        <ul>
+            <li>Tu consentimiento explícito.</li>
+            <li>La necesidad de ejecutar un contrato contigo (por ejemplo, registro o suscripción).</li>
+            <li>Obligaciones legales aplicables.</li>
+        </ul>
+
+        <h3>4. Almacenamiento y seguridad</h3>
+        <p>Guardamos tus datos en servidores seguros. Usamos cifrado y medidas técnicas adecuadas para evitar accesos no autorizados, pérdida o mal uso de tu información.</p>
+
+        <h3>5. Compartición de datos</h3>
+        <p>No compartimos tus datos con terceros, salvo:</p>
+        <ul>
+            <li>Proveedores de servicios que operan bajo acuerdos de confidencialidad.</li>
+            <li>Requerimientos legales de autoridades competentes.</li>
+        </ul>
+
+        <h3>6. Derechos del usuario</h3>
+        <p>Tienes derecho a:</p>
+        <ul>
+            <li>Acceder a tus datos personales.</li>
+            <li>Solicitar la corrección o eliminación de tus datos.</li>
+            <li>Oponerte al tratamiento de tus datos o retirar tu consentimiento.</li>
+            <li>Solicitar la portabilidad de los datos.</li>
+        </ul>
+
+        <h3>7. Cookies</h3>
+        <p>Usamos cookies para mejorar tu experiencia de navegación. Puedes gestionar tus preferencias desde la configuración del navegador.</p>
+
+        <h3>8. Cambios en esta política</h3>
+        <p>Podemos actualizar esta política. Te notificaremos por medios visibles si se realizan cambios importantes.</p>
+
+        <h3>9. Contacto</h3>
+        <p>Si tienes dudas o deseas ejercer tus derechos, contáctanos en: <a href="mailto:soporte@ipolyglot.com">soporte@ipolyglot.com</a></p>
+    </div>
+</div>
+
+<!-- Modal de Centro de Ayuda con Guía -->
+<div id="helpModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeHelp()">&times;</span>
+    <h2>Guía del Usuario - Centro de Ayuda</h2>
+
+    <div class="guide-box">
+      <h3>1. ¿Cómo empiezo a usar la plataforma?</h3>
+      <p>Una vez que ingresas con tu cuenta, ve al menú lateral y haz clic en <strong>Lecciones</strong> para comenzar. Si es tu primera vez, revisa la sección <em>Perfil</em> y completa tu información personal.</p>
+
+      <h3>2. ¿Cómo accedo a mis lecciones?</h3>
+      <p>En el menú, selecciona <strong>Lecciones</strong>. Allí verás los cursos disponibles. Haz clic en el que quieras y empieza con el módulo 1.</p>
+
+      <h3>3. ¿Cómo edito mi perfil?</h3>
+      <p>Haz clic en <strong>Perfil</strong> en el menú. Podrás modificar tu nombre, foto y contraseña. No olvides guardar los cambios.</p>
+
+      <h3>4. ¿Qué pasa si olvido mi contraseña?</h3>
+      <p>Haz clic en "¿Olvidaste tu contraseña?" en la pantalla de inicio de sesión. Recibirás un correo con instrucciones para restablecerla.</p>
+
+      <h3>5. ¿Cómo reporto errores?</h3>
+      <p>Desde el menú, selecciona <strong>Ayuda</strong> y luego "Reportar un problema". Se abrirá un formulario donde puedes indicar el tipo de problema y dar detalles.</p>
+
+      <h3>6. ¿Dónde puedo ver notificaciones y mensajes?</h3>
+      <p>En el menú lateral están las secciones <strong>Notificaciones</strong> y <strong>Mensajes</strong>. Allí verás toda la comunicación relacionada con tu cuenta.</p>
+    </div>
+
+    <hr>
+    <p>¿Necesitas más ayuda?</p>
+    <button onclick="openChat()">💬 Chatear con Soporte</button>
+  </div>
+</div>
+
+<!-- Modal del Chat de Soporte -->
+<div id="chatModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChat()">&times;</span>
+    <h2>Soporte en Línea</h2>
+
+    <div id="chatBox" style="max-height: 250px; overflow-y: auto; background: #f9f9f9; padding: 10px; border-radius: 8px; margin-bottom: 15px;">
+      <div class="msg support"><strong>Soporte:</strong> Bienvenido al soporte en línea. ¿En qué puedo ayudarte?</div>
+    </div>
+
+    <select id="chatOptions" style="margin-bottom: 10px; padding: 8px; border-radius: 5px;">
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="No puedo acceder a una lección">No puedo acceder a una lección</option>
+      <option value="Problemas con mi cuenta">Problemas con mi cuenta</option>
+      <option value="Error en la plataforma">Error en la plataforma</option>
+      <option value="Dudas sobre pagos">Dudas sobre pagos</option>
+      <option value="Deseo cambiar el idioma">Deseo cambiar el idioma</option>
+      <option value="Otro problema">Otro problema</option>
+    </select>
+
+    <button onclick="sendChatResponse()">Enviar</button>
+  </div>
+</div>
+<!-- Modal de Centro de Ayuda -->
+<!-- Modal de Centro de Ayuda con Guía -->
+<div id="helpModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeHelp()">&times;</span>
+    <h2>Guía del Usuario - Centro de Ayuda</h2>
+    
+    <h3>1. ¿Cómo empiezo a usar la plataforma?</h3>
+    <p>Una vez que ingresas con tu cuenta, ve al menú lateral y haz clic en <strong>Lecciones</strong> para comenzar. Si es tu primera vez, revisa la sección <em>Perfil</em> y completa tu información personal.</p>
+    
+    <h3>2. ¿Cómo accedo a mis lecciones?</h3>
+    <p>En el menú, selecciona <strong>Lecciones</strong>. Allí verás los cursos disponibles. Haz clic en el que quieras y empieza con el módulo 1.</p>
+    
+    <h3>3. ¿Cómo edito mi perfil?</h3>
+    <p>Haz clic en <strong>Perfil</strong> en el menú. Podrás modificar tu nombre, foto y contraseña. No olvides guardar los cambios.</p>
+    
+    <h3>4. ¿Qué pasa si olvido mi contraseña?</h3>
+    <p>Haz clic en "¿Olvidaste tu contraseña?" en la pantalla de inicio de sesión. Recibirás un correo con instrucciones para restablecerla.</p>
+
+    <h3>5. ¿Cómo reporto errores?</h3>
+    <p>Desde el menú, selecciona <strong>Ayuda</strong> y luego "Reportar un problema". Se abrirá un formulario donde puedes indicar el tipo de problema y dar detalles.</p>
+
+    <h3>6. ¿Dónde puedo ver notificaciones y mensajes?</h3>
+    <p>En el menú lateral están las secciones <strong>Notificaciones</strong> y <strong>Mensajes</strong>. Allí verás toda la comunicación relacionada con tu cuenta.</p>
+
+    <hr>
+
+    <p>¿Necesitas más ayuda?</p>
+    <button onclick="openChat()">💬 Chatear con Soporte</button>
+  </div>
+</div>
+
+
+<!-- Modal de Chat de Soporte -->
+<!-- Modal del Chat de Soporte -->
+<div id="chatModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChat()">&times;</span>
+    <h2>Soporte en Línea</h2>
+    
+    <div id="chatMessages" style="max-height: 200px; overflow-y: auto; margin-bottom: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px;">
+      <p><strong>Soporte:</strong> Bienvenido al soporte en línea. ¿En qué puedo ayudarte?</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <button onclick="sendReply('Tengo problemas para iniciar sesión.')">Tengo problemas para iniciar sesión</button>
+      <button onclick="sendReply('Mi curso no carga correctamente.')">Mi curso no carga correctamente</button>
+      <button onclick="sendReply('Deseo actualizar mi información.')">Deseo actualizar mi información</button>
+      <button onclick="sendReply('Tengo dudas sobre los pagos.')">Tengo dudas sobre los pagos</button>
+      <button onclick="sendReply('Otro problema.')">Otro problema</button>
+    </div>
+  </div>
+  </div>
+
+<!-- Modal de Reporte de Problema -->
+<div id="reportModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('reportModal')">&times;</span>
+        <h2>Reportar un Problema</h2>
+        <form id="reportForm">
+            <label for="problemType">Tipo de Problema:</label>
+            <select id="problemType" name="problemType" required>
+                <option value="">-- Selecciona una opción --</option>
+                <option value="error-tecnico">Error técnico</option>
+                <option value="problema-interfaz">Problema de interfaz</option>
+                <option value="contenido-incorrecto">Contenido incorrecto</option>
+                <option value="otro">Otro</option>
+            </select>
+
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Describe el problema..." required></textarea>
+
+            <button type="submit">Enviar Reporte</button>
+        </form>
+        <p id="reportSuccess" style="color: green; display: none; margin-top: 10px;">¡Reporte enviado con éxito!</p>
+    </div>
+</div>
+
+
+<!-- Modal de Información de la App -->
+<div id="appInfoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('appInfoModal')">&times;</span>
+        <h2>Información de la App</h2>
+        <ul style="line-height: 1.8; padding-left: 20px;">
+            <li><strong>Nombre de la aplicación:</strong> iPolyglot</li>
+            <li><strong>Versión:</strong> 1.0.0</li>
+            <li><strong>Última actualización:</strong> 10 de junio de 2025</li>
+            <li><strong>Novedades:</strong> Nuevas lecciones, correcciones de errores, mejoras de accesibilidad y soporte en línea integrado.</li>
+            <li><strong>Desarrollador:</strong> iPolyglot Labs</li>
+            <li><strong>Compatibilidad:</strong> Navegadores modernos (Chrome, Firefox, Safari, Edge)</li>
+            <li><strong>Idiomas disponibles:</strong> Español, Inglés, Francés, Portugués</li>
+            <li><strong>Accesibilidad:</strong> Compatible con lectores de pantalla, navegación por teclado y contraste mejorado</li>
+            <li><strong>Requiere conexión a internet:</strong> Sí</li>
+            <li><strong>Soporte técnico:</strong> 24/7 vía chat y correo electrónico</li>
+            <li><strong>Política de privacidad:</strong> Cumple con el RGPD y la Ley de Protección de Datos Personales</li>
+            <li><strong>Contacto:</strong> soporte@ipolyglot.com</li>
+        </ul>
+        <p>¿Necesitas más ayuda? Visita nuestro <a href="#" onclick="openHelp()">Centro de Ayuda</a> o revisa nuestra <a href="#" onclick="openPrivacy()">Política de Privacidad</a>.</p>
+    </div>
+</div>
+
+
+    <script src="js/ayuda.js"></script>
+    <script src="js/tema.js"></script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+/* Estilos Generales y Reseteo */
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #6c757d; /* Gris para textos secundarios */
+    --accent-color: #28a745; /* Verde para éxito/activos */
+    --background-color: #f8f9fa; /* Fondo claro */
+    --card-background: #ffffff; /* Fondo de tarjeta blanco */
+    --border-color: #dee2e6; /* Borde gris claro */
+    --text-color: #343a40; /* Color de texto oscuro */
+    --online-status-color: #28a745; /* Verde para estado online */
+    --progress-bar-fill: #007bff; /* Color de relleno de barra de progreso */
+    --progress-bar-bg: #e9ecef; /* Fondo de barra de progreso */
+    --danger-color: #dc3545; /* Rojo para acciones de eliminar */
+
+    /* Nuevas variables para el tema oscuro de la sidebar */
+    --sidebar-dark-bg: #2c3e50; /* Azul oscuro casi negro para la sidebar (similar a lecciones) */
+    --sidebar-dark-text: #ecf0f1; /* Texto claro para la sidebar oscura */
+    --sidebar-dark-icon: #bdc3c7; /* Iconos un poco más oscuros que el texto */
+    --sidebar-dark-hover-bg: #34495e; /* Fondo hover más oscuro para la sidebar */
+    --sidebar-dark-active-bg: var(--primary-color); /* Usar el color primario para el activo */
+    --sidebar-dark-active-text: #ffffff; /* Texto blanco para el activo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Fuente un poco más moderna */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente recomendada, si la tienes importada */
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex; /* Para que la sidebar y el main-content se coloquen uno al lado del otro */
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 10px; /* Pequeño padding superior */
+}
+
+.profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-avatar p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--sidebar-dark-text); /* Texto claro para el nombre de usuario */
+}
+
+.main-nav ul {
+    list-style: none;
+    width: 100%;
+}
+
+.main-nav li {
+    width: 100%;
+}
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 1.05em;
+}
+
+.main-nav a i {
+    margin-right: 15px;
+    font-size: 1.2em;
+    color: var(--sidebar-dark-icon); /* Íconos claros */
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: var(--sidebar-dark-hover-bg); /* Fondo más oscuro al pasar el ratón */
+    color: var(--sidebar-dark-text); /* Texto sigue claro */
+}
+
+.main-nav a:hover i {
+    color: var(--sidebar-dark-text); /* Ícono sigue claro */
+}
+
+.main-nav a.active {
+    background-color: #34495e;
+    border-left: 5px solid #3498db; /* Indicador de activo */
+    padding-left: 15px; /* Ajuste para el borde izquierdo *
+}
+
+.main-nav a.active i {
+    color: var(--sidebar-dark-active-text); /* Ícono blanco para el activo */
+}
+
+
+/* Contenido Principal del Foro */
+.foro-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--background-color);
+    transition: margin-left 0.3s ease; /* Para el movimiento si la sidebar se colapsa */
+}
+
+/* Header del Foro */
+.foro-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--card-background);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    position: sticky; /* Sticky header */
+    top: 20px; /* Deja un espacio desde la parte superior */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.foro-header .menu-icon {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    cursor: pointer;
+    margin-right: 20px;
+    /* Ocultar por defecto, se mostrará en pantallas pequeñas si la sidebar es colapsable */
+    display: none; 
+}
+
+.foro-header h2 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    flex-grow: 1; /* Permite que el título ocupe espacio */
+    margin-right: 20px;
+    text-transform: uppercase; /* Convertir a mayúsculas como en la imagen */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.foro-header .search-bar {
+    position: relative;
+    margin-right: 20px;
+}
+
+.foro-header .search-bar input {
+    padding: 10px 40px 10px 15px; /* Más padding para que sea más alto y espacio para el ícono */
+    border: 1px solid var(--border-color);
+    border-radius: 25px; /* Bordes más redondeados */
+    font-size: 0.95em;
+    outline: none;
+    width: 250px; /* Ancho ajustable */
+    transition: width 0.3s ease, border-color 0.3s ease;
+    background-color: #f0f2f5; /* Fondo ligeramente gris para el input */
+}
+
+.foro-header .search-bar input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra al enfocar */
+}
+
+.foro-header .search-bar i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.foro-header .header-icons {
+    display: flex;
+    align-items: center;
+}
+
+.foro-header .header-icons i {
+    font-size: 1.3em;
+    color: var(--secondary-color);
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.foro-header .header-icons i:hover {
+    color: var(--primary-color);
+}
+
+.foro-header .small-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 20px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+
+/* Estructura de Columnas del Foro */
+.foro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Columna izquierda más ancha que la derecha */
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos de las Tarjetas (Cards) */
+.card {
+    background-color: var(--card-background);
+    padding: 25px; /* Más padding para un look más espacioso */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra más pronunciada */
+}
+
+.card h3 {
+    font-size: 1.4em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    font-weight: 600; /* Un poco más de peso a los títulos */
+}
+
+/* Preguntas al Docente Card */
+#questions-list { /* Contenedor para las preguntas dinámicas */
+    display: flex;
+    flex-direction: column;
+}
+
+.questions-card .question-item {
+    display: flex;
+    align-items: flex-start; /* Alinea los íconos con la parte superior del texto */
+    gap: 15px; /* Espacio entre los elementos flex */
+    margin-bottom: 15px;
+    padding-bottom: 15px; /* Más padding inferior */
+    border-bottom: 1px dashed var(--border-color); /* Línea punteada */
+}
+
+.questions-card .question-item:last-child {
+    border-bottom: none; /* Sin borde en el último elemento */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.questions-card .question-item i.fa-user-circle {
+    font-size: 2em; /* Ícono de usuario más grande */
+    color: var(--secondary-color);
+    flex-shrink: 0; /* Evita que el ícono se encoja */
+}
+
+.questions-card .question-details {
+    flex-grow: 1; /* Permite que los detalles de la pregunta ocupen el espacio restante */
+    display: flex; /* Make question details a flex container */
+    flex-direction: column; /* Stack children vertically */
+}
+
+.questions-card .question-details p {
+    font-weight: 600; /* Pregunta en azul */
+    color: var(--primary-color); 
+    margin-bottom: 5px;
+    line-height: 1.4; /* Mejorar legibilidad */
+}
+
+.questions-card .question-details span {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-top: 5px; /* Add some space above the username */
+}
+
+/* Estilos para el botón de borrar */
+.delete-post-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color); /* Color gris para el ícono */
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 5px;
+    transition: color 0.3s ease;
+    align-self: flex-start; /* Alinea el botón arriba, junto al ícono de usuario */
+    margin-left: auto; /* Empuja el botón a la derecha */
+}
+
+.delete-post-btn:hover {
+    color: var(--danger-color); /* Rojo al pasar el ratón para indicar peligro */
+}
+
+/* Estadísticas Card */
+.stats-card .stats-data {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 10px; /* Espacio entre los elementos de estadísticas */
+}
+
+.stats-card .stats-data div {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95em;
+    color: var(--secondary-color);
+    flex-basis: 0; /* Base flex para que se distribuyan equitativamente */
+    flex-grow: 1;
+}
+
+.stats-card .stats-data span {
+    font-size: 1.8em; /* Números más grandes */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+/* Participación Activa Card */
+.participation-card .participation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.participation-card .users-online {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.participation-card .percentage {
+    background-color: var(--accent-color); /* Fondo verde */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.participation-card .user-list .user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* Más padding */
+    border-bottom: 1px dashed #eee;
+}
+
+.participation-card .user-list .user-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.participation-card .user-item .username {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.participation-card .user-item .status {
+    font-size: 0.9em;
+    color: var(--online-status-color);
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Recompensas Card */
+.rewards-card .rewards-section .reward-item {
+    margin-bottom: 20px; /* Más espacio entre ítems de recompensa */
+}
+
+.rewards-card .rewards-section .reward-item:last-child {
+    margin-bottom: 0;
+}
+
+.rewards-card .rewards-section p {
+    font-weight: bold;
+    margin-bottom: 8px; /* Más espacio antes de la barra de progreso */
+    color: var(--text-color);
+}
+
+.rewards-card .rewards-section .status.online {
+    font-size: 0.9em;
+    color: var(--online-status-color);
+    font-style: italic;
+    display: block; 
+    margin-bottom: 5px; /* Espacio antes de la barra de progreso */
+}
+
+.reward-progress-bar {
+    background-color: var(--progress-bar-bg);
+    border-radius: 5px;
+    height: 12px; /* Más alta */
+    overflow: hidden; 
+}
+
+.reward-progress-bar .progress {
+    background-color: var(--progress-bar-fill);
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out; 
+}
+
+/* Publicar Nueva Duda Card */
+.new-post-card .new-post-input {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.new-post-card .new-post-input input {
+    width: 100%;
+    padding: 12px 45px 12px 18px; /* Más padding y espacio para ícono */
+    border: 1px solid var(--border-color);
+    border-radius: 25px; /* Más redondeado */
+    font-size: 1em;
+    outline: none;
+    background-color: #f0f2f5; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.new-post-card .new-post-input input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.new-post-card .new-post-input i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* --- Audio Recording Specific Styles --- */
+.new-post-audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.recording-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+}
+
+.recording-button i {
+    margin-right: 5px;
+}
+
+.recording-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.recording-button.danger {
+    background-color: var(--danger-color); /* Red color for delete/clear audio */
+}
+
+.recording-button.danger:hover {
+    background-color: #bb2d3b;
+}
+
+#audio-preview {
+    flex-grow: 1;
+    min-width: 150px; /* Ensure audio controls are visible */
+    height: 40px; /* Standardize height with buttons */
+    border-radius: 20px;
+    background-color: var(--background-color);
+    padding: 5px;
+}
+/* Hide elements using a utility class */
+.hidden {
+    display: none !important; /* Use !important to override other display rules */
+}
+
+/* Style for audio element within a question item */
+.questions-card .question-details audio {
+    width: 100%;
+    max-width: 300px; /* Limit width for embedded audio */
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+/* Ensure input field and icon are hidden/shown correctly by JS */
+.new-post-card .new-post-input input.hidden {
+    display: none;
+}
+.new-post-card .new-post-input i.hidden {
+    display: none;
+}
+
+/* --- End Audio Recording Specific Styles --- */
+
+
+.new-post-card .new-post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+
+.new-post-card .new-post-actions i {
+    font-size: 1.6em; /* Íconos más grandes */
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.new-post-card .new-post-actions i:hover {
+    color: var(--primary-color);
+}
+
+.new-post-card .publish-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px; /* Más padding */
+    border: none;
+    border-radius: 25px; /* Más redondeado */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2); /* Sombra para el botón */
+}
+
+.new-post-card .publish-button:hover {
+    background-color: #0056b3; 
+    transform: translateY(-1px); /* Efecto ligero al pasar el ratón */
+}
+
+.new-post-card .publish-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+
+
+/* Responsividad (Ejemplo Básico para pantallas más pequeñas) */
+@media (max-width: 992px) {
+    .foro-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .foro-header .search-bar input {
+        width: 180px; /* Ajustar ancho de búsqueda */
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px; /* Sidebar más pequeña */
+        padding: 15px 5px;
+    }
+    /* Ocultar elementos de texto en la sidebar colapsada */
+    .profile-avatar p {
+        display: none; 
+    }
+    .main-nav a {
+        justify-content: center; /* Centrar íconos */
+        padding: 10px 0;
+    }
+    .main-nav a i {
+        margin-right: 0;
+    }
+    .main-nav a span { /* Si tuvieras texto en el nav aparte del ícono */
+        display: none;
+    }
+
+    .foro-header .menu-icon {
+        display: block; /* Mostrar ícono de menú en móvil */
+    }
+    
+    .foro-header h2 {
+        font-size: 1.5em;
+    }
+
+    .foro-header .search-bar {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+
+    .foro-header .search-bar input {
+        width: 100%;
+    }
+
+    .foro-header .header-icons .small-avatar {
+        display: none; /* Ocultar avatar pequeño en header */
+    }
+
+    .card {
+        padding: 20px; /* Reducir padding en tarjetas */
+    }
+
+    .questions-card .question-item i.fa-user-circle {
+        font-size: 1.7em; /* Ícono de usuario ligeramente más pequeño */
+    }
+}
+
+@media (max-width: 576px) {
+    .foro-content {
+        padding: 10px;
+    }
+    .foro-header {
+        padding: 10px 15px;
+    }
+    .foro-header .search-bar {
+        display: none; /* Ocultar barra de búsqueda en pantallas muy pequeñas */
+    }
+    .foro-header .header-icons {
+        margin-left: auto; /* Empujar íconos a la derecha si no hay búsqueda */
+    }
+    .new-post-card .new-post-actions {
+        flex-direction: column; /* Apilar acciones en pantallas muy pequeñas */
+        align-items: stretch;
+    }
+    .new-post-card .new-post-actions i {
+        text-align: center; /* Centrar íconos apilados */
+        margin-bottom: 10px;
+    }
+    .new-post-card .publish-button {
+        width: 100%; /* Botón de publicar ocupa todo el ancho */
+    }
+     /* Adjust audio controls for very small screens */
+    .new-post-audio-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .recording-button, #audio-preview {
+        width: 100%;
+        box-sizing: border-box; /* Include padding/border in element's total width */
+    }
+}
+body {
+  background-color: var(--background-color, #f4f4f4);
+  color: var(--text-color, #333);
+}
+
+.sidebar {
+  background-color: var(--sidebar-color, #2c3e50);
+}
+
+.box {
+  background-color: var(--box-color, #fff);
+}
+
+.search {
+  border: 1px solid var(--search-border-color, #ccc);
+}
+/* Descanso visual */
+.descanso-visual {
+  filter: sepia(30%) brightness(90%) hue-rotate(-10deg);
+}

@@ -1,0 +1,348 @@
+/* Variables de color */
+:root {
+    --memrise-dark-blue: #0A1C2B;
+    --memrise-orange: #FFD400;
+    --memrise-blue-text: #172D43;
+    --memrise-light-grey: #f0f2f5;
+    --text-grey: #6A7A8C;
+    --green-accent: #28a745;
+    --red-accent: #dc3545;
+    --blue-accent: #007bff;
+    --success-background: #e6ffec; /* Light green for success message */
+    --success-text: #1e7e34; /* Darker green for success text */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--background-color, #f4f4f4);
+    color: var(--text-color, #333);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar (Barra Lateral) --- */
+.sidebar {
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    flex-shrink: 0; /* Evita que la sidebar se encoja */
+    justify-content: flex-start; /* Alinea el contenido al inicio verticalmente */
+}
+
+/* --- Contenido Principal (Formulario de Login y Registro) --- */
+.main-content-login {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--memrise-light-grey);
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.contenedor-formulario {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* CLASE PARA OCULTAR ELEMENTOS */
+.hidden {
+    display: none !important; /* Use !important to ensure it overrides flex/block if set elsewhere */
+}
+
+.formulario {
+    /* Base styles for all forms */
+}
+
+.formulario h1 {
+    color: var(--memrise-dark-blue);
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Provides consistent spacing between form elements */
+}
+
+.formulario label {
+    text-align: left;
+    font-size: 14px;
+    color: var(--text-grey);
+    font-weight: 600;
+    margin-bottom: -10px; /* Pulls label closer to the input field */
+}
+
+.formulario input[type="email"],
+.formulario input[type="password"],
+.formulario input[type="text"],
+.formulario input[type="tel"], /* Added for mobile number input */
+.formulario select /* Added for country code select */ {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't add to the width */
+}
+
+.formulario input:focus,
+.formulario select:focus { /* Added for country code select focus */
+    outline: none;
+    border-color: var(--memrise-orange);
+    box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.2);
+}
+
+/* --- Password Visibility Toggle Styles --- */
+.password-container {
+    position: relative;
+    width: 100%; /* Ensure the container takes full width */
+    margin-bottom: 15px; /* Add margin like other inputs */
+}
+
+/* Apply specific padding to the password input when it's inside the container */
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    padding-right: 40px; /* Make space for the eye icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px; /* Adjust based on desired spacing from the right edge */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-grey); /* Match your grey text for consistency */
+    font-size: 1.1em; /* Adjust icon size as needed */
+    z-index: 10; /* Ensure it's above the input field */
+}
+
+.toggle-password:hover {
+    color: var(--memrise-blue-text); /* Slightly darker on hover */
+}
+/* --- End Password Visibility Toggle Styles --- */
+
+
+/* Specific style for the mobile input group */
+.mobile-input-group {
+    display: flex;
+    gap: 10px; /* Space between select and input */
+    align-items: center;
+    width: 100%; /* Ensure it takes full width */
+}
+
+.mobile-input-group select {
+    flex-shrink: 0; /* Prevent select from shrinking */
+    width: auto; /* Allow select to size based on content */
+    padding-right: 30px; /* Ensure space for dropdown arrow */
+}
+
+.mobile-input-group input[type="tel"] {
+    flex-grow: 1; /* Allow input to take remaining space */
+}
+
+
+/* Button Styles - General */
+.formulario .btn-login,
+.formulario .btn-register-show,
+.formulario .btn-register-submit,
+.formulario .btn-back-to-login,
+.formulario .btn-reset-password {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px; /* Pill shape */
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px; /* Space above buttons */
+}
+
+/* Primary Action Buttons (Memrise Orange) */
+.formulario .btn-login,
+.formulario .btn-register-submit,
+.formulario .btn-reset-password {
+    background-color: var(--memrise-orange);
+    color: var(--memrise-dark-blue);
+}
+
+.formulario .btn-login:hover,
+.formulario .btn-register-submit:hover,
+.formulario .btn-reset-password:hover {
+    background-color: #e6c200; /* Slightly darker orange */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Secondary Action Buttons (Memrise Dark Blue) */
+.formulario .btn-register-show,
+.formulario .btn-back-to-login {
+    background-color: var(--memrise-dark-blue);
+    color: #fff;
+}
+
+.formulario .btn-register-show:hover,
+.formulario .btn-back-to-login:hover {
+    background-color: #000; /* Darker blue/black */
+    transform: translateY(-2px);
+}
+
+/* General Link Style */
+.formulario .link {
+    display: block; /* Makes it take full width and respect margins */
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--memrise-blue-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.formulario .link:hover {
+    color: var(--memrise-orange);
+    text-decoration: underline;
+}
+
+/* Styles for the description paragraph in Forgot Password form */
+.formulario .form-description {
+    font-size: 15px;
+    color: var(--text-grey);
+    margin-bottom: 25px; /* Space below the description text */
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Specific style for the "Usa tu número de móvil" and "Usa tu correo electrónico" links */
+.formulario .use-mobile-link,
+.formulario .use-email-link {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Styles for Password Reset Success Message */
+.success-box {
+    background-color: var(--success-background); /* Light green background */
+    border-radius: 8px; /* Match input/button border-radius */
+    padding: 20px; /* Padding inside the success message box */
+    margin-top: 20px; /* Space above the success message box (adjust if needed) */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text within the box */
+    width: auto; /* Allow content to define width */
+}
+
+.mailbox-icon {
+    width: 100px; /* Adjust size of your icon */
+    height: auto;
+    margin-bottom: 15px; /* Space below the icon */
+}
+
+.success-message-text {
+    font-size: 1.1em; /* Adjust font size */
+    color: var(--success-text); /* Darker green text */
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0; /* Remove default paragraph margins */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        flex-direction: row;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
+
+    .main-content-login {
+        padding: 20px;
+    }
+
+    .contenedor-formulario {
+        max-width: 350px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .main-content-login {
+        padding: 15px;
+    }
+
+    .contenedor-formulario {
+        padding: 25px;
+    }
+
+    .formulario h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .formulario input,
+    .formulario .btn-login,
+    .formulario .btn-register-show,
+    .formulario .btn-register-submit,
+    .formulario .btn-back-to-login,
+    .formulario .btn-reset-password {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .success-box {
+        padding: 15px;
+    }
+
+    .mailbox-icon {
+        width: 80px;
+    }
+
+    .success-message-text {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-formulario {
+        padding: 20px;
+    }
+    .formulario h1 {
+        font-size: 22px;
+    }
+}
+
+

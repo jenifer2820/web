@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyglot Jr. | Inicio</title>
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="profile-avatar">
+                <img src="recursos/avatar.png" alt="Avatar de Usuario">
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="inicio.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+                    <li><a href="lecciones.html"><i class="fas fa-book"></i> Lecciones</a></li>
+                    <li><a href="notificaciones.html"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                    <li><a href="mensajes.html"><i class="fas fa-comments"></i> Mensajes</a></li>
+                    <li><a href="foro.html"><i class="fas fa-users"></i> Foro</a></li>
+                    <li><a href="pagos-inscripcion.html"><i class="fas fa-credit-card"></i> Pagos de Inscripción</a></li>
+                    <li><a href="ajustes.html"><i class="fas fa-cog"></i> Ajustes</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <img src="recursos/banderaeeuu,png.png" alt="Bandera Estados Unidos" class="header-flag">
+                    <span>Inglés (Estados Unidos) - Nivel 6</span>
+                </div>
+                <div class="header-right">
+                    <div class="header-icons">
+                        <i class="fas fa-chart-bar"></i>
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                        <i class="fas fa-fire"></i>
+                        <span class="streak-count">4</span>
+
+                        <div class="language-selector-container">
+                            <img src="recursos/banderaeeuu,png.png" alt="Cambiar Idioma" class="language-toggle-flag" id="language-toggle">
+                            
+                            <div class="language-dropdown-menu" id="language-menu">
+                                <a href="#" class="dropdown-item active-lang">
+                                    <img src="recursos/banderaeeuu,png.png" alt="Inglés"> Inglés
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/españa.png" alt="Español"> Español
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/francia.png" alt="Francés"> Francés
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/japon.png" alt="Japonés"> Japonés
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/alemania.png" alt="Alemán"> Alemán
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/italia.png" alt="Italiano"> Italiano
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/corea-del-sur.png" alt="Coreano"> Coreano
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/arabia-saudita.png" alt="Árabe"> Árabe
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/rusia.png" alt="Ruso"> Ruso
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/turquia.png" alt="Turco"> Turco
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/china.png" alt="Chino"> Chino
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/portugal.png" alt="Portugués"> Portugués
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/holanda.png" alt="Neerlandés"> Neerlandés
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/polonia.png" alt="Polaco"> Polaco
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/india.png" alt="Hindi"> Hindi
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/bandera-de-bangladesh.png" alt="Bengalí"> Bengalí
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/pakistan.png" alt="Urdu"> Urdu
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <img src="recursos/indonesia.png" alt="Indonesio"> Indonesio
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="user-dropdown-container">
+                            <i class="fas fa-user-circle" id="user-toggle"></i>
+                            <div class="user-dropdown-menu" id="user-menu">
+                                <a href="#" class="dropdown-item">Ajustes del perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">Ayuda</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item logout">Cerrar sesión</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <section class="alert-section">
+                <div class="alert-box">
+                    <i class="fas fa-star"></i> ¡polyglot Jr. al 60 % por tiempo limitado!
+                    <span class="price-old">899,90 PEN</span> <span class="price-new">299.99 PEN</span>
+                    <a href="pagos-inscripcion.html" class="btn-pro">Hazte Pro</a>
+                </div>
+            </section>
+
+            <section class="course-progress-section">
+                <div class="course-header">
+                    <span class="course-level-tag">Básico</span> &rarr;
+                    <h2>Inglés (Estados Unidos) - Nivel <span class="level-number">6</span></h2>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 81.8%;"></div>
+                    <span class="progress-text">900/1100</span>
+                </div>
+            </section>
+
+            <section class="my-score-section">
+                <div class="score-header">
+                    <h3>Mi puntuación</h3>
+                    <span class="score-total">900 pts</span>
+                </div>
+                <div class="score-grid">
+                    <div class="score-item green">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Aprender palabras</h4>
+                        <span class="score-points">300 pts</span>
+                        <p>75 palabras aprendidas</p>
+                        <p>0 palabras empezadas</p>
+                    </div>
+                    <div class="score-item red">
+                        <i class="fas fa-times-circle"></i>
+                        <h4>Escuchar mis palabras</h4>
+                        <span class="score-points">300 pts</span>
+                        <p>0 vídeos nuevos</p>
+                        <p>0 vídeos repetidos</p>
+                    </div>
+                    <div class="score-item blue">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Usar mis palabras</h4>
+                        <span class="score-points">300 pts</span>
+                        <p>0 conversaciones nuevas</p>
+                        <p>0 conversaciones repetidas</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/inicio.js"></script> 
+    <script src="js/tema.js"></script>
+</body>
+</html>

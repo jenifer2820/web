@@ -1,0 +1,717 @@
+/* Variables de color para fácil mantenimiento */
+:root {
+    --memrise-dark-blue: #0A1C2B;
+    --memrise-orange: #FFD400;
+    --memrise-blue-text: #172D43; /* This is primarily for the main content text. */
+
+    /* NEW OR MODIFIED VARIABLES FOR SIDEBAR */
+    --sidebar-bg-original: #2c3e50; /* Reverted to the original dark blue you specified */
+    --sidebar-text-light: #E0E6EB; /* Light text color for sidebar items */
+    --sidebar-active-bg: rgba(255, 255, 255, 0.1); /* Slightly opaque white for active item background */
+    --sidebar-active-border: #4A90E2; /* Vibrant blue for the active item's left border */
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.05); /* Lighter hover effect */
+
+    --memrise-light-grey: #f0f2f5;
+    --text-grey: #6A7A8C;
+    --green-accent: #28a745;
+    --red-accent: #dc3545;
+    --blue-accent: #007bff;
+    --fire-orange: #FF4500;
+
+    /* Variables para el tema (mantener al final o en un archivo separado de tema si lo usas) */
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --sidebar-color: #2c3e50;
+    --box-color: #fff;
+    --search-border-color: #ccc;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente recomendada, si la tienes importada */
+    margin: 0;
+    background-color: var(--background-color); /* Usando variable de tema */
+    color: var(--text-color); /* Usando variable de tema */
+    display: flex; /* Para que la sidebar y el main-content se coloquen uno al lado del otro */
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-color); /* Usando variable de tema */
+    color: #ecf0f1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste para el avatar después de eliminar el logo */
+.profile-avatar {
+    margin-top: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.main-nav {
+    width: 100%;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    width: 100%;
+}
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 1.05em;
+}
+
+.main-nav a i {
+    margin-right: 15px;
+    font-size: 1.2em;
+
+}
+
+.main-nav li.active a {
+    background-color: var(--sidebar-active-bg); /* Background for active item */
+    color: #fff; /* White text for active item */
+    border-left: 5px solid var(--sidebar-active-border); /* Vibrant blue border for active item */
+    padding-left: 15px; /* Ajuste para compensar el borde */
+}
+
+.main-nav li.active a i {
+    color: #fff; /* White icon for active item */
+}
+
+.main-nav a:not(.active):hover {
+    background-color: #34495e;
+    border-left: 5px solid #3498db; /* Indicador de activo */
+    padding-left: 15px; /* Ajuste para el borde izquierdo */
+}
+.main-nav a:not(.active):hover i {
+    color: #fff; /* White icon on hover */
+}
+
+
+/* --- Main Content del Dashboard --- */
+.dashboard-main-content {
+    flex-grow: 1;
+    padding: 30px 40px;
+}
+
+/* --- Header del Dashboard (la barra superior con bandera e iconos) --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--box-color); /* Usando variable de tema */
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--memrise-blue-text);
+}
+
+.header-left .header-flag {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-right .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Importante para separar los iconos, incluyendo el selector de idioma y el usuario */
+}
+
+.header-right .header-icons i {
+    font-size: 22px;
+    color: var(--text-grey);
+    cursor: pointer;
+    position: relative;
+}
+
+
+/* Estilo para el icono de fuego (racha) */
+.header-right .header-icons .fa-fire {
+    color: var(--fire-orange);
+}
+
+/* Estilo para el número de la racha */
+.header-right .header-icons .streak-count {
+    background-color: var(--fire-orange);
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 50%;
+    position: relative;
+    left: -8px;
+    top: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 18px;
+    height: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+.header-right .header-icons .notification-badge {
+    background-color: var(--memrise-orange);
+    color: var(--memrise-dark-blue);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    transform: translate(50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 18px;
+    height: 18px;
+}
+
+/* --- Estilos para el dropdown de usuario --- */
+.user-dropdown-container {
+    position: relative;
+    display: inline-block;
+    /* margin-left: 10px; */ /* Eliminado porque header-icons ya tiene gap */
+}
+
+.user-dropdown-container .fa-user-circle {
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--memrise-blue-text);
+}
+
+.user-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    padding: 10px 0;
+}
+
+.user-dropdown-menu.show { /* Cambiado de .active a .show para consistencia con JS */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-menu .dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--memrise-blue-text);
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.user-dropdown-menu .dropdown-item:hover {
+    background-color: var(--memrise-light-grey);
+}
+
+.user-dropdown-menu .dropdown-item.logout {
+    color: var(--red-accent);
+    font-weight: 600;
+}
+
+.user-dropdown-menu .dropdown-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 8px 0;
+}
+
+
+/* --- NUEVOS ESTILOS para el selector de idioma --- */
+.language-selector-container {
+    position: relative;
+    display: inline-block;
+    /* margin-right: 20px; */ /* Eliminado porque header-icons ya tiene gap */
+}
+
+.language-toggle-flag {
+    width: 30px; /* Tamaño de la bandera en el header */
+    height: 30px;
+    border-radius: 50%; /* Hacerla redonda */
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #ddd; /* Borde sutil */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.language-toggle-flag:hover {
+    transform: scale(1.05);
+}
+
+.language-dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 40px; /* Ajusta la distancia desde la bandera */
+    right: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    overflow: hidden;
+    padding: 5px 0; /* Padding interno para los items */
+}
+
+.language-dropdown-menu.show {
+    display: block; /* Muestra el menú cuando tiene la clase 'show' */
+}
+
+.language-dropdown-menu .dropdown-item {
+    display: flex; /* Para alinear bandera y texto */
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--memrise-blue-text); /* Color de texto consistente */
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+}
+
+.language-dropdown-menu .dropdown-item:hover {
+    background-color: #f2f2f2;
+}
+
+.language-dropdown-menu .dropdown-item img {
+    width: 25px; /* Tamaño de la bandera en el menú */
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #eee;
+}
+
+.language-dropdown-menu .dropdown-item.active-lang {
+    background-color: #e0f7fa; /* Fondo suave para el idioma activo */
+    font-weight: 600;
+    color: var(--blue-accent); /* Usar blue-accent o un color distintivo */
+}
+/* FIN NUEVOS ESTILOS para el selector de idioma */
+
+
+/* --- Alert Section (Barra de anuncio) --- */
+.alert-section {
+    margin-bottom: 30px;
+}
+
+.alert-box {
+    background-color: var(--memrise-orange);
+    color: var(--memrise-blue-text);
+    padding: 15px 25px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.alert-box i {
+    font-size: 20px;
+}
+
+.alert-box .price-old {
+    text-decoration: line-through;
+    color: rgba(0,0,0,0.6);
+    margin-left: auto;
+}
+
+.alert-box .price-new {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.alert-box .btn-pro {
+    background-color: var(--memrise-dark-blue);
+    color: #fff;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none; /* Asegurar que no tenga subrayado */
+}
+
+.alert-box .btn-pro:hover {
+    background-color: #000;
+}
+
+/* --- Course Progress Section --- */
+.course-progress-section {
+    background-color: var(--box-color); /* Usando variable de tema */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.course-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.course-level-tag {
+    background-color: #e0e0e0;
+    color: var(--text-grey);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.course-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--memrise-blue-text);
+}
+
+.course-header .level-number {
+    background-color: var(--memrise-orange);
+    color: var(--memrise-dark-blue);
+    padding: 3px 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 10px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--memrise-orange);
+    border-radius: 5px;
+}
+
+.progress-text {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    font-size: 14px;
+    color: var(--text-grey);
+}
+
+/* --- My Score Section --- */
+.my-score-section {
+    background-color: var(--box-color); /* Usando variable de tema */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.score-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.score-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: var(--memrise-blue-text);
+}
+
+.score-header .score-total {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--memrise-orange);
+}
+
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.score-item {
+    background-color: var(--memrise-light-grey);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.score-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: transparent;
+}
+
+.score-item.green::before { background-color: var(--green-accent); }
+.score-item.red::before { background-color: var(--red-accent); }
+.score-item.blue::before { background-color: var(--blue-accent); }
+
+.score-item i {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.score-item.green i { color: var(--green-accent); }
+.score-item.red i { color: var(--red-accent); }
+.score-item.blue i { color: var(--blue-accent); }
+
+.score-item h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: var(--memrise-blue-text);
+}
+
+.score-item .score-points {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--memrise-orange);
+    margin-bottom: 10px;
+}
+
+.score-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--text-grey);
+}
+
+/* --- Responsive Design para la página de inicio.html --- */
+@media (max-width: 1200px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        flex-direction: row;
+        justify-content: space-around;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
+
+    /* Ajuste para el avatar cuando la sidebar es horizontal */
+    .profile-avatar {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .main-nav {
+        width: auto;
+    }
+
+    .main-nav ul {
+        display: flex;
+        gap: 15px;
+    }
+    .main-nav a {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: 8px 15px;
+    }
+    .main-nav a i {
+        display: none;
+    }
+    .main-nav li.active a {
+        border-left-color: transparent;
+        border-bottom-color: var(--memrise-orange);
+    }
+    .dashboard-main-content {
+        padding: 20px;
+    }
+    .alert-box {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .alert-box .price-old, .alert-box .price-new {
+        margin: 0 10px;
+    }
+    .alert-box .btn-pro {
+        margin-top: 10px;
+    }
+    .score-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .main-nav a {
+        width: 100%;
+        text-align: left;
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+    .main-nav a i {
+        display: inline-block;
+    }
+    .main-nav li.active a {
+        border-bottom-color: transparent;
+        border-left-color: var(--memrise-orange);
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+    }
+    .header-right .header-icons {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 10px; /* Reducido para pantallas pequeñas */
+    }
+    /* Asegura que el dropdown de usuario también se vea bien en móviles */
+    .user-dropdown-container {
+        position: static;
+        width: 100%;
+        margin-left: 0;
+    }
+    .user-dropdown-menu {
+        position: static;
+        width: 100%;
+        right: auto;
+        transform: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 10px;
+    }
+
+    /* Media Queries para el selector de idioma en móviles */
+    .language-selector-container {
+        position: relative; /* Aseguramos que se comporte como bloque */
+        width: auto; /* Ancho automático */
+        margin-right: 0; /* Ajustar margen */
+    }
+
+    .language-toggle-flag {
+        width: 25px; /* Reducir tamaño de bandera */
+        height: 25px;
+    }
+
+    .language-dropdown-menu {
+        top: 35px; /* Ajusta la posición si el header se apila */
+        min-width: 140px;
+        right: 0; /* Alinea a la derecha del contenedor */
+    }
+
+    .alert-box {
+        font-size: 14px;
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .alert-box .price-old, .alert-box .price-new {
+        margin: 5px 0;
+    }
+    .alert-box .btn-pro {
+        width: 100%;
+        text-align: center;
+    }
+    .course-header h2 {
+        font-size: 20px;
+    }
+    .score-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Descanso visual */
+.descanso-visual {
+    filter: sepia(30%) brightness(90%) hue-rotate(-10deg);
+}
+
+/* Estilos relacionados con el tema (si se manejan con JS) */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.sidebar {
+    background-color: var(--sidebar-color);
+}
+
+/* Asumo que .box es una clase general para elementos como .dashboard-header, .alert-box, .course-progress-section, .my-score-section */
+/* Si no la usas, estos estilos no tendrán efecto, pero los mantengo por si es tu intención */
+.box {
+    background-color: var(--box-color);
+}
+
+.search { /* Si tienes un elemento con clase .search */
+    border: 1px solid var(--search-border-color);
+}

@@ -1,0 +1,299 @@
+:root {
+  --primary-color: #3498db;
+  --background-color: #f4f4f4;
+  --sidebar-color: #2c3e50;
+  --text-color: #333;
+  --box-color: #ffffff;
+  --contrast-box-color: #222;
+  --search-border-color: #ccc;
+  --hover-bg: #34495e;
+  --sidebar-text-color: #ecf0f1;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-color);
+  color: var(--sidebar-text-color);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.main-nav ul {
+  list-style: none;
+  width: 100%;
+  padding-left: 0;
+}
+
+.main-nav li {
+  width: 100%;
+}
+
+.main-nav a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: var(--sidebar-text-color);
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.main-nav a i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background-color: var(--hover-bg);
+  border-left: 5px solid var(--primary-color);
+  padding-left: 15px;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 40px 60px;
+  background-color: var(--background-color);
+  overflow-y: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.search {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+  border: 1px solid var(--search-border-color);
+  border-radius: 6px;
+  color: var(--text-color);
+  background-color: var(--box-color);
+}
+
+/* Secciones de ajustes */
+.settings-section {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.box {
+  background-color: var(--box-color);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 280px;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+.box h2 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* Switch estilo */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Temas */
+.themes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.theme {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: transform 0.2s;
+}
+
+.theme:hover {
+  transform: scale(1.1);
+}
+
+.theme.selected {
+  border: 3px solid var(--primary-color);
+}
+
+/* Contraste alto */
+body.high-contrast {
+  background-color: #000;
+  color: #fff;
+}
+
+body.high-contrast .box {
+  background-color: var(--contrast-box-color);
+  border: 1px solid #fff;
+}
+
+body.high-contrast .main-content {
+  background-color: #111;
+}
+
+body.high-contrast h1,
+body.high-contrast .box h2,
+body.high-contrast label {
+  color: #fff;
+}
+
+body.high-contrast .search {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* Descanso visual */
+.descanso-visual {
+  filter: sepia(30%) brightness(90%) hue-rotate(-10deg);
+}
+/* Estilo bonito para checkboxes y radios */
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 8px;
+  background-color: var(--box-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+input[type="checkbox"]::before,
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+  opacity: 1;
+}
+
+/* Contraste alto compatible */
+body.high-contrast input[type="checkbox"],
+body.high-contrast input[type="radio"] {
+  border-color: #fff;
+  background-color: #000;
+}
+
+body.high-contrast input[type="checkbox"]:checked,
+body.high-contrast input[type="radio"]:checked {
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+}
+
+body.high-contrast input[type="checkbox"]::before,
+body.high-contrast input[type="radio"]::before {
+  background-color: #000;
+}

@@ -1,0 +1,417 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente recomendada, si la tienes importada */
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex; /* Para que la sidebar y el main-content se coloquen uno al lado del otro */
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-avatar p {
+    margin: 0;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.main-nav li {
+    width: 100%;
+}
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.05em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-nav a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
+.main-nav a.current-page {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-left: 5px solid #3498db;
+    padding-left: 15px;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+/* Contenedores de secciones principales */
+.content-header,
+.info-section,
+.notification-footer-actions { /* Ajustado para el nuevo contenedor de botones inferiores */
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    padding: 25px;
+    box-sizing: border-box; /* Asegura que el padding no añada al ancho total */
+}
+
+/* Header del contenido (Notificaciones y botón) */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    margin-top: 0;
+}
+
+.content-header h2 {
+    margin: 0;
+    color: #34495e;
+    font-size: 1.8em;
+    display: flex; /* Para alinear el título y el icono */
+    align-items: center;
+}
+
+.content-header h2 i {
+    margin-left: 10px; /* Espacio entre el título y el icono de campana */
+    color: #f39c12; /* Color para el icono de campana */
+}
+
+
+/* Botones de acción generales (como "Marcar todas como leídas", "Responder", "Eliminar") */
+.action-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #2980b9;
+}
+
+.action-button.delete-button { /* Estilo específico para el botón de eliminar */
+    background-color: #e74c3c;
+}
+.action-button.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* ==== Estilos Específicos para Página de Notificaciones ==== */
+
+/* Contenedor de las pestañas */
+.notification-tabs {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.notification-tabs .tab-item {
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.notification-tabs .tab-item:hover {
+    color: #3498db;
+}
+
+.notification-tabs .tab-item.active {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.notification-tabs .tab-item.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -11px;
+    width: 100%;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Lista de Notificaciones */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada caja de notificación */
+.notification-box {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    background-color: #ecf6ff;
+    border-left: 5px solid #3498db;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Indica que son clickeables */
+    position: relative; /* Para posicionar los íconos de acción si es necesario */
+}
+
+.notification-box:hover {
+    background-color: #e0f2ff;
+}
+
+.notification-icon {
+    flex-shrink: 0;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.notification-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.notification-icon .fas { /* Estilo para iconos de Font Awesome dentro de notification-icon */
+    font-size: 35px; /* Tamaño más grande para los iconos principales */
+    color: #3498db;
+}
+
+.notification-details {
+    flex-grow: 1; /* Permite que los detalles ocupen el espacio restante */
+    color: #2c3e50;
+}
+
+.notification-details h3 {
+    margin: 0 0 5px 0;
+    color: #2980b9;
+    font-size: 1.1em;
+}
+
+.notification-details p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Contenedor de los iconos de acción dentro de cada notificación */
+.notification-actions-icons {
+    flex-shrink: 0; /* Evita que los iconos se encojan */
+    margin-left: 15px; /* Espacio a la izquierda de los iconos */
+    display: flex;
+    gap: 5px; /* Espacio entre los iconos */
+}
+
+.notification-actions-icons .icon-button {
+    background: none;
+    border: none;
+    color: #7f8c8d; /* Color gris suave para los iconos inactivos */
+    font-size: 1.2em; /* Tamaño de los iconos de acción */
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.notification-actions-icons .icon-button:hover {
+    color: #3498db; /* Color azul al pasar el ratón */
+    background-color: #f0f2f5;
+}
+
+
+/* Sección de botones inferiores "Responder" y "Eliminar" */
+.notification-footer-actions {
+    display: flex;
+    justify-content: flex-start; /* Alinea los botones a la izquierda */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 10px; /* Margen superior si lo necesitas, ya que está en un div aparte */
+}
+
+
+/* Clase para notificaciones leídas (se aplica con JS) */
+.notification-box.leida {
+    background-color: #dff0d8; /* Fondo verde claro */
+    border-left-color: #2ecc71; /* Borde verde */
+    opacity: 0.9;
+}
+
+/* Adaptación responsiva */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-avatar {
+        margin-bottom: 20px;
+    }
+
+    .main-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .main-nav li {
+        width: auto;
+    }
+
+    .main-nav a {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+
+    .main-nav a.current-page {
+        border-left: none;
+        border-bottom: 3px solid #3498db;
+        padding-left: 15px;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .content-header h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .action-button {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .notification-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .notification-tabs .tab-item {
+        margin: 5px 8px;
+        font-size: 0.9em;
+    }
+
+    .notification-box {
+        flex-direction: column; /* Apila el icono y el texto en pantallas pequeñas */
+        text-align: center;
+        padding: 15px;
+    }
+
+    .notification-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .notification-details {
+        text-align: center; /* Centrar texto en móviles si se apila */
+    }
+
+    .notification-actions-icons {
+        margin-left: 0;
+        margin-top: 10px; /* Espacio entre el contenido y los iconos de acción */
+        justify-content: center; /* Centrar los iconos en móviles */
+        width: 100%; /* Ocupar el ancho completo */
+    }
+
+    .notification-footer-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+body {
+  background-color: var(--background-color, #f4f4f4);
+  color: var(--text-color, #333);
+}
+
+.sidebar {
+  background-color: var(--sidebar-color, #2c3e50);
+}
+
+.box {
+  background-color: var(--box-color, #fff);
+}
+
+.search {
+  border: 1px solid var(--search-border-color, #ccc);
+}
+/* Descanso visual */
+.descanso-visual {
+  filter: sepia(30%) brightness(90%) hue-rotate(-10deg);
+}

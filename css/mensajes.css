@@ -1,0 +1,564 @@
+/* Importar fuentes o estilos base si es necesario */
+@import url('base.css'); /* Asegúrate de que esta ruta sea correcta para tu base.css */
+
+/* Contenedor principal de la página de mensajes */
+body {
+    font-family: 'Poppins', sans-serif; /* Fuente recomendada, si la tienes importada */
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex; /* Para que la sidebar y el main-content se coloquen uno al lado del otro */
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar Styling (ajustar según tu base.css) */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .profile-avatar {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar .profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.sidebar .main-nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar .main-nav ul li {
+    width: 100%;
+}
+
+.sidebar .main-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 1.05em;
+}
+
+.sidebar .main-nav ul li a i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.sidebar .main-nav ul li a:hover,
+.sidebar .main-nav ul li a.active {
+    background-color: #34495e; /* Fondo en hover/activo */
+    border-left: 5px solid #3498db; /* Borde azul para activo */
+    padding-left: 15px; /* Ajuste de padding por el borde */
+}
+
+
+/* Contenido principal de mensajes */
+.mensajes-main-content {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Cabecera de mensajes */
+.mensajes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.mensajes-header h1 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
+}
+
+.mensajes-header .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mensajes-header .header-icons i {
+    font-size: 1.3em;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.mensajes-header .header-icons i:hover {
+    color: #3498db;
+}
+
+.mensajes-header .small-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3498db;
+}
+
+/* Sección de opciones de mensajes (nuevo, ver, crear) */
+.messages-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.message-option {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-option:hover {
+    background-color: #e8f0fe; /* Light blue on hover */
+    border-color: #b3d4fc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.message-option i {
+    font-size: 1.5em;
+    color: #3498db; /* Azul para los iconos */
+    margin-right: 15px;
+}
+
+.message-option span {
+    font-size: 1.1em;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Sección "Chatear con:" */
+.chat-selection {
+    margin-bottom: 20px;
+}
+
+.chat-selection h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.chat-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+}
+
+.chat-type-btn {
+    background-color: #e9ecef; /* Gris claro */
+    color: #555;
+    border: 1px solid #dee2e6;
+    padding: 10px 20px;
+    border-radius: 25px; /* Botones redondeados */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chat-type-btn i {
+    font-size: 1.1em;
+}
+
+.chat-type-btn:hover {
+    background-color: #d1d6db;
+    border-color: #adb5bd;
+}
+
+.chat-type-btn.active {
+    background-color: #3498db; /* Azul para el botón activo */
+    color: white;
+    border-color: #3498db;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Contenedor de la interfaz de chat (lista de contactos + área de chat) */
+.chat-interface-container {
+    display: flex;
+    flex-grow: 1; /* Ocupa el espacio restante en el main content */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que los bordes redondeados funcionen bien con el contenido */
+    background-color: #fcfcfc;
+}
+
+/* Lista de conversaciones/contactos */
+.lista-conversaciones {
+    flex-basis: 300px; /* Ancho fijo para la lista de contactos */
+    flex-shrink: 0; /* No se encoge */
+    border-right: 1px solid #eee;
+    overflow-y: auto; /* Scroll para la lista de contactos */
+    padding: 10px 0;
+    background-color: #ffffff;
+}
+
+.contacto {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin-bottom: 5px; /* Espacio entre contactos */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.contacto:last-child {
+    border-bottom: none; /* No hay borde en el último contacto */
+}
+
+.contacto:hover, .contacto.active {
+    background-color: #e8f0fe; /* Fondo azul claro en hover/activo */
+}
+
+.contacto img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #5cb85c; /* Borde verde para avatares */
+}
+
+.contacto span {
+    font-weight: 600;
+    color: #333;
+    font-size: 1em;
+}
+
+/* Área de chat (caja de mensajes + input) */
+.chat-area {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #e5ddd5; /* Fondo de burbujas de chat tipo WhatsApp */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo de mensajes individuales */
+.message {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+.message.sent {
+    background-color: #dcf8c6; /* Verde claro para enviados */
+    align-self: flex-end; /* A la derecha */
+    border-bottom-right-radius: 2px; /* Esquina "puntiaguda" */
+}
+
+.message.received {
+    background-color: #ffffff; /* Blanco para recibidos */
+    align-self: flex-start; /* A la izquierda */
+    border-bottom-left-radius: 2px; /* Esquina "puntiaguda" */
+}
+
+/* Input de mensaje */
+.mensaje-input {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #eee;
+}
+
+#mensaje-texto {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1em;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#mensaje-texto:focus {
+    border-color: #3498db;
+}
+
+#enviar-mensaje {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#enviar-mensaje:hover {
+    background-color: #27ae60; /* Verde más oscuro */
+}
+
+
+/* --- Estilos para los Modales --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Permanece fijo en la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita scroll si el contenido es demasiado grande */
+    background-color: rgba(0,0,0,0.5); /* Fondo semitransparente oscuro */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Para centrar si no se usa flex */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%; /* Ancho responsive */
+    max-width: 600px; /* Ancho máximo */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Para posicionar el botón de cierre */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos del modal */
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content textarea,
+.modal-content select {
+    width: calc(100% - 20px); /* Ancho completo menos padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.modal-content button {
+    background-color: #3498db; /* Azul para botones de acción */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Alinear a la derecha */
+}
+
+.modal-content button:hover {
+    background-color: #2980b9;
+}
+
+.modal-content label {
+    font-weight: 600;
+    color: #555;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .mensajes-main-content {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .chat-interface-container {
+        flex-direction: column; /* Coloca la lista de contactos encima del chat */
+    }
+
+    .lista-conversaciones {
+        flex-basis: auto;
+        height: 200px; /* Altura fija para la lista de contactos en móviles */
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+    }
+
+    .chat-buttons {
+        justify-content: center; /* Centra los botones de tipo de chat */
+    }
+
+    .modal-content {
+        width: 95%; /* Más ancho en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        flex-direction: row;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        overflow-x: auto; /* Para scroll horizontal si hay muchos ítems */
+    }
+
+    .sidebar .profile-avatar {
+        display: none; /* Ocultar avatar en sidebar en móvil para ahorrar espacio */
+    }
+
+    .sidebar .main-nav ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .sidebar .main-nav ul li a {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        flex-direction: column; /* Icono y texto apilados */
+        text-align: center;
+    }
+
+    .sidebar .main-nav ul li a i {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .sidebar .main-nav ul li a:hover,
+    .sidebar .main-nav ul li a.active {
+        background-color: transparent;
+        border-bottom: 3px solid #3498db;
+        padding-left: 15px;
+    }
+
+    .mensajes-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .mensajes-header .header-icons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .modal-content {
+        padding: 20px;
+        gap: 10px;
+    }
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .message {
+        max-width: 90%; /* Más ancho en pantallas muy pequeñas */
+    }
+
+    .mensaje-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #mensaje-texto {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    #enviar-mensaje {
+        width: 100%;
+    }
+}
+body {
+  background-color: var(--background-color, #f4f4f4);
+  color: var(--text-color, #333);
+}
+
+.sidebar {
+  background-color: var(--sidebar-color, #2c3e50);
+}
+
+.box {
+  background-color: var(--box-color, #fff);
+}
+
+.search {
+  border: 1px solid var(--search-border-color, #ccc);
+}
+/* Descanso visual */
+.descanso-visual {
+  filter: sepia(30%) brightness(90%) hue-rotate(-10deg);
+}
